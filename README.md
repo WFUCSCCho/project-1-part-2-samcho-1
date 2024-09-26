@@ -1,6 +1,6 @@
 # Project 1: MD Simulations of RNA Acridine:G-quadruplexes
 
-Note: You are strongly encouraged to work together.  However, each person is responsible for producing and submitting their own work.
+Note: You are strongly encouraged to work together with other people.  However, each person is responsible for producing and submitting their own work.
 
 Overview: We will perform CHARMM MD simulations with NAMD of a RNA G-quadruplex in explicit solvent on the DEAC cluster.  Using the production run of the simulation, we will use VMD and other programs to visualize trajectories and perform analyses on them.  
 
