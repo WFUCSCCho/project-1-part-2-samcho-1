@@ -142,7 +142,7 @@ This is a nifty little program that I wrote that will write NAMD configuration f
 
   a. Open “md-equil.slurm” and "md-dyna.slurm" using __nano__. 
   
-  b. For both files, replace all instances of “[username]” with your username and [ID] with “45S”.
+  b. For both files, replace all instances of “[username]” with your username and [ID] with “45S”. Also, replace the instance of "[repository-id]" with yours.
 
 After you’re done, save your changes and exit out of the program.
 
