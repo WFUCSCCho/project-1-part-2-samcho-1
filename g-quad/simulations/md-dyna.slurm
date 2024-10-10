@@ -15,8 +15,7 @@
 module load apps/namd/3.0b6
 
 # set home directory
-HOMEDIR=/deac/phy/classes/phy620/[github-url]/g-quad/[username]/[ID]/simulations/
-# set scratch directory
+HOMEDIR=/deac/phy/classes/phy620/[repository-id]/g-quad/[username]/[ID]/simulations/# set scratch directory
 SCRATCHDIR=/scratch/$SLURM_JOBID
 # set simulation ID
 SIMID=[ID]
