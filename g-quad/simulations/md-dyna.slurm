@@ -8,7 +8,8 @@
 #SBATCH --account="classes"
 #SBATCH --output="multinode_job.o"
 #SBATCH --error="multinode_job.e"
-#SBATCH --mem=128mb
+#SBATCH --mem=2000mb                                                            
+#SBATCH --constraint=intel                                                      
 
 # load the NAMD module
 module load apps/namd/3.0b6
