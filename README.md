@@ -122,7 +122,7 @@ Copy the 45S_wbi.psf and 45S_wbi.pdb files to the “simulations” subdirectory
   
   c. Replace the instances of [XPBC], [YPBC], and [ZPBC] with the x-, y-, and z-dimensions of the water box (to the tenth place precision) from Step 8.
 
-10. Next we will use the NAMD configuration file template file dyna.temp to read in the MD simulation state from the previous step and continue for 1 ns. Again, this is a generic script for any biomolecule. You will need to modify it using the VS Code program.
+10. Next we will use the NAMD configuration file template file dyna.temp to read in the MD simulation state from the previous step and continue for 1 ns. Again, this is a generic script for any biomolecule. You will need to modify it using the __nano__ program.
 
   a. Open “dyna.temp” using __nano__. 
   
@@ -138,7 +138,7 @@ for ((i=2; i<=11; i++)); do ./gen_scripts.sh $i; done
 
 This is a nifty little program that I wrote that will write NAMD configuration file for doing the 1st nanosecond of MD simulation and then the 2nd nanosecond and so forth until the end.
 
-12. Next we will set up the SLURM script for running MD simulations on the cluster. Again, this is a generic script for any biomolecule. You will need to modify it using the VS Code program..
+12. Next we will set up the SLURM script for running MD simulations on the cluster. Again, this is a generic script for any biomolecule. You will need to modify it using the __nano__ program..
 
   a. Open “md-equil.slurm” and "md-dyna.slurm" using __nano__. 
   
