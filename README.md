@@ -1,6 +1,6 @@
 # Project 1: MD Simulations of RNA Acridine:G-quadruplexes
 
-Note: You are strongly encouraged to work together.  However, each person is responsible for producing and submitting their own work.
+Note: You are strongly encouraged to work together with other people.  However, each person is responsible for producing and submitting their own work.
 
 Overview: We will perform CHARMM MD simulations with NAMD of a RNA G-quadruplex in explicit solvent on the DEAC cluster.  Using the production run of the simulation, we will use VMD and other programs to visualize trajectories and perform analyses on them.  
 
@@ -110,7 +110,7 @@ To verify that everything really is fine, type “vmd 45S_wbi.psf 45S_wbi.pdb”
 
 My screen looks differently from yours only because I selected the ions and changed their drawing method as VDW. Exit VMD.
 
-Copy the 445S_wbi.psf and 45S_wbi.pdb files to the “simulations” subdirectory.
+Copy the 45S_wbi.psf and 45S_wbi.pdb files to the “simulations” subdirectory.
 
 8. Use __nano__ to open up the 45S_wbi.pdb file. On the first line, first column is “CRYST1”. The next three sets of numbers are the x-, y-, and z-dimensions of the water box. Save the water box dimensions. Exit out of the program.
 
@@ -122,7 +122,7 @@ Copy the 445S_wbi.psf and 45S_wbi.pdb files to the “simulations” subdirector
   
   c. Replace the instances of [XPBC], [YPBC], and [ZPBC] with the x-, y-, and z-dimensions of the water box (to the tenth place precision) from Step 8.
 
-10. Next we will use the NAMD configuration file template file dyna.temp to read in the MD simulation state from the previous step and continue for 1 ns. Again, this is a generic script for any biomolecule. You will need to modify it using the VS Code program.
+10. Next we will use the NAMD configuration file template file dyna.temp to read in the MD simulation state from the previous step and continue for 1 ns. Again, this is a generic script for any biomolecule. You will need to modify it using the __nano__ program.
 
   a. Open “dyna.temp” using __nano__. 
   
@@ -138,11 +138,11 @@ for ((i=2; i<=11; i++)); do ./gen_scripts.sh $i; done
 
 This is a nifty little program that I wrote that will write NAMD configuration file for doing the 1st nanosecond of MD simulation and then the 2nd nanosecond and so forth until the end.
 
-12. Next we will set up the SLURM script for running MD simulations on the cluster. Again, this is a generic script for any biomolecule. You will need to modify it using the VS Code program..
+12. Next we will set up the SLURM script for running MD simulations on the cluster. Again, this is a generic script for any biomolecule. You will need to modify it using the __nano__ program..
 
-  a. Open “md.slurm” using __nano__. 
+  a. Open “md-equil.slurm” and "md-dyna.slurm" using __nano__. 
   
-  b. Replace all instances of “[username]” with your username and [ID] with “45S”.
+  b. For both files, replace all instances of “[username]” with your username and [ID] with “45S”. Also, replace the instance of "[repository-id]" with yours.
 
 After you’re done, save your changes and exit out of the program.
 
@@ -154,13 +154,17 @@ Three main commands:
   2.	squeue -> check the status of the queue.
   3.	scancel -> cancel a submission to the queue.
 
-To submit your md.slurm script to the DEAC cluster, type “sbatch md.slurm”. The check on whether everything is okay, type “squeue –u [username]” where [username] is your username. If it is running, your job will show up as below. 
+To submit your md-equil.slurm script to the DEAC cluster, type “sbatch md-equil.slurm”. The check on whether everything is okay, type “squeue –u [username]” where [username] is your username. If it is running, your job will show up as below. 
 
 ![image](https://github.com/user-attachments/assets/cc67b75d-21c1-43d3-b1f8-3554b7d94063)
 
 In the “ST” column, an “R” indicates that it is currently running and a “PD” indicates that it is waiting (or pending) in the queue.
 
-I strongly recommend that you periodically “baby-sit” your MD simulation until it is finished.  Note: This should take at least 24 hours, but no longer than two days. Wait patiently until your simulations are finished. If something seems wrong, contact me.
+This is just to run the equilibration part of your MD simulation. It should take a relatively short period of time for md-equil.slurm to complete, less than an hour.
+
+When it is finished, submit your md-dyna.slurm script to the DEAC cluster as above with md-equil.slurm. This is to run the production run part of your MD simulations.
+
+I strongly recommend that you periodically “baby-sit” your MD simulation until it is finished.  Note: This should take at several hours hours, but no longer than two days. Wait patiently until your simulations are finished. If something seems wrong, contact me.
 
 14. When your MD simulation is finished, you can visualize it using VMD and even save it as a video: [Trajectories and Movie Making](https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/node3.html)
 
